@@ -25,6 +25,5 @@ function(seqname, matches, strand, file="", append=FALSE)
 		strand=rep.int(strand, length(matches)),
  		check.names=FALSE)
  		write.table(hits, file=file, append=append, quote=FALSE, sep="\t",
- row.names=FALSE, col.names=!append)
+ row.names=FALSE, col.names=FALSE)
  }
-

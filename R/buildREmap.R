@@ -24,9 +24,10 @@ function(REpatternFilePath,format="fasta", BSgenomeName, outfile, chr = c("all")
 		}
 		dict = readDNAStringSet(REpatternFilePath, format, use.names=TRUE)
 		searchPattern(dict, BSgenomeName=BSgenomeName,outfile=outfile, chr = chr)
-		REmap <- toGRanges(outfile, format="BED", header=TRUE, sep ="\t")
-                ### BED file is 0 based. However, the outfile is 1 based
-                start(REmap) <- start(REmap) - 1
+		# too slow # REmap <- toGRanges(outfile, format="BED", header=TRUE, sep ="\t")
+		REmap <- import(outfile, format = "BED")
+    ### BED file is 0 based. However, the outfile is 1 based
+    start(REmap) <- start(REmap) - 1
 		file.remove(outfile)
 		REmap
 }
