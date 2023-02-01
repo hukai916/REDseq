@@ -1,7 +1,7 @@
 Package: REDseq
 Type: Package
 Title: Analysis of high-throughput sequencing data processed by restriction enzyme digestion
-Version: 1.45.1
+Version: 1.45.2
 Date: 2021-05-02
 Author: Lihua Julie Zhu, Junhui Li and Thomas Fazzio
 Maintainer: Lihua Julie Zhu <julie.zhu@umassmed.edu>
