@@ -8,7 +8,7 @@
 internal function for searching pattern(s) in a genome used by buildREmap leveraging BSgenome package
 }
 \usage{
-searchPattern(dict0, BSgenomeName, outfile = "", chr = c("all"))
+searchPattern(dict0, BSgenomeName, outfile = "", chr = c("all"), maskN = TRUE)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -24,6 +24,10 @@ BSgenome object, please refer to available.genomes in BSgenome package for detai
   \item{chr}{
   The chromosomes to search for
   }
+  \item{maskN}{
+  Mask N-block regions in genome, default to TRUE meaning that N-blocks will be excluded from searching
+}
+
 }
 \value{
 results are saved in the file specified by outfile

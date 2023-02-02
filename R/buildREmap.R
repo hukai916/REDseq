@@ -1,5 +1,5 @@
 buildREmap <-
-function(REpatternFilePath,format="fasta", BSgenomeName, outfile, chr = c("all"))
+function(REpatternFilePath,format="fasta", BSgenomeName, outfile, chr = c("all"), maskN = TRUE)
 {
 		if(missing(REpatternFilePath))
 		{
@@ -23,7 +23,7 @@ function(REpatternFilePath,format="fasta", BSgenomeName, outfile, chr = c("all")
 			#stop("outfile specified as ", outfile, " already exists! Please rename the outfile!")
 		}
 		dict = readDNAStringSet(REpatternFilePath, format, use.names=TRUE)
-		searchPattern(dict, BSgenomeName=BSgenomeName,outfile=outfile, chr = chr)
+		searchPattern(dict, BSgenomeName=BSgenomeName, outfile=outfile, chr = chr, maskN = maskN)
 		# too slow # REmap <- toGRanges(outfile, format="BED", header=TRUE, sep ="\t")
 		REmap <- import(outfile, format = "BED")
     ### BED file is 0 based. However, the outfile is 1 based

@@ -8,7 +8,7 @@ Build a genome wide cut site map for a Restriction Enzyme (RE)
 Build a genome-wide cut map for a Restriction Enzyme (RE)
 }
 \usage{
-buildREmap(REpatternFilePath, format = "fasta", BSgenomeName, outfile, chr = c("all"))
+buildREmap(REpatternFilePath, format = "fasta", BSgenomeName, outfile, chr = c("all"), maskN = TRUE)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -27,6 +27,10 @@ temporary output file for writing the matched chromosome location to
   \item{chr}{
   The chromosomes to search for
 }
+  \item{maskN}{
+  Mask N-block regions in genome, default to TRUE meaning that N-blocks will be excluded from searching
+}
+
 }
 \value{
 Output REmap as a GRanges

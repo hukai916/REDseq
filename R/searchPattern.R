@@ -1,4 +1,4 @@
-searchPattern <-function (dict0,  BSgenomeName, outfile = "", chr = c("all")) {
+searchPattern <-function (dict0,  BSgenomeName, outfile = "", chr = c("all"), maskN = TRUE) {
   if (missing(dict0) || class(dict0) != "DNAStringSet") {
       stop("dictO is required as a DNAStringSet object!")
   }
@@ -24,6 +24,9 @@ searchPattern <-function (dict0,  BSgenomeName, outfile = "", chr = c("all")) {
     append <- FALSE
     for (seqname in seqnames) {
         subject <- BSgenomeName[[seqname]]
+        if (maskN) {
+          subject <- maskMotif(subject, "N")
+        }
         cat(">>> Finding all hits in sequences", seqname, "...\n")
         for (i in seq_len(length(dict0))) {
             patternID <- names(dict0)[i]
